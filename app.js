@@ -4,12 +4,14 @@ import cors from "cors"
 import { crearClienteRouter } from "./views/routers/registroRouter.js"
 import { crearVueloRouter } from "./views/routers/vueloRouter.js"
 import { crearReservaRouter } from "./views/routers/reservaRouter.js"
+import { crearMetodoRouter } from "./views/routers/metodoRouter.js"
 
 import { RegistroModel } from "./models/registroModel.js"
 import { VueloModel } from "./models/vueloModel.js"
 import { ReservaModel } from "./models/reservaModel.js"
+import { MetodoModel } from "./models/metodoModel.js"
 
-export const crearApp = ({ registroModel, vueloModel, reservaModel }) => {
+export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel }) => {
   const app = express()
   app.disable("x-powered-by")
   app.use(cors())
@@ -22,6 +24,7 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel }) => {
   app.use("/registro", crearClienteRouter({ registroModel }))
   app.use("/vuelos", crearVueloRouter({ vueloModel }))
   app.use("/reservas", crearReservaRouter({ reservaModel }))
+  app.use("/metodo-de-pago", crearMetodoRouter({ metodoModel }))
 
   // Correr Servidor
   const PORT = process.env.PORT ?? 3000
@@ -33,5 +36,6 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel }) => {
 crearApp({
   registroModel: RegistroModel,
   vueloModel: VueloModel,
-  reservaModel: ReservaModel
+  reservaModel: ReservaModel,
+  metodoModel: MetodoModel,
 })

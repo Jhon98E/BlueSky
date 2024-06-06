@@ -7,8 +7,7 @@ export const crearVueloRouter = ({ vueloModel }) => {
 
   vueloRouter.post("/", vueloController.crearVuelo);
   vueloRouter.get("/", vueloController.consultarTodos);
-  vueloRouter
-    .route("/:id")
+  vueloRouter.route("/:id")
     .get(vueloController.consultarPorId)
     .put(vueloController.actualizarVuelo)
     .delete(vueloController.eliminarVuelo);

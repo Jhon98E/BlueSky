@@ -7,8 +7,7 @@ export const crearClienteRouter = ({ registroModel }) => {
 
   registroRouter.post("/", registroController.crearCliente);
   registroRouter.get("/", registroController.consultarTodos);
-  registroRouter
-    .route("/:id")
+  registroRouter.route("/:id")
     .get(registroController.consultarPorId)
     .put(registroController.actualizarCliente)
     .delete(registroController.eliminarCliente);
