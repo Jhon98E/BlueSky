@@ -1,4 +1,4 @@
-import db from "../database/conexion.js"
+import db from './database/conexion.js'
 
 export class RegistroModel {
 

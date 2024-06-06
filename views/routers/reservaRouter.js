@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { ReservaController } from "../controllers/reservaController.js"
+import { ReservaController } from "../../controllers/reservaController.js"
 
 export const crearReservaRouter = ({ reservaModel }) => {
   const reservaRouter = Router()

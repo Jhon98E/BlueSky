@@ -1,9 +1,9 @@
 import express, { json } from "express"
 import cors from "cors"
 
-import { crearClienteRouter } from "./routers/registroRouter.js"
-import { crearVueloRouter } from "./routers/vueloRouter.js"
-import { crearReservaRouter } from "./routers/reservaRouter.js"
+import { crearClienteRouter } from "./views/routers/registroRouter.js"
+import { crearVueloRouter } from "./views/routers/vueloRouter.js"
+import { crearReservaRouter } from "./views/routers/reservaRouter.js"
 
 import { RegistroModel } from "./models/registroModel.js"
 import { VueloModel } from "./models/vueloModel.js"
