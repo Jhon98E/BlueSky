@@ -26,7 +26,7 @@ export class MetodoController {
       const { id } = req.params
       const metodo = await this.metodoModel.consultarPorId({id})
       if (metodo) return res.json(metodo)
-      res.status(400).send({ message: "No se encontro el Metodod de Pago" })
+      res.status(400).send({ message: "No se encontro el Metodo de Pago" })
     }
   
     actualizarMetodo = async (req, res) => {

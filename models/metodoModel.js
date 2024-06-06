@@ -27,8 +27,7 @@ export class MetodoModel {
 
   static async actualizar({ id, nombre_metodo }) {    
     const [result] = await db.query(
-      `UPDATE MetodoPago SET nombre_metodo =? WHERE metodo_id =?;`,
-      [nombre_metodo, id]
+      `UPDATE MetodoPago SET nombre_metodo =? WHERE metodo_id =?;`, [nombre_metodo, id]
     )
     return result.insertId
   }

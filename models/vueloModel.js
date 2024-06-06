@@ -21,8 +21,7 @@ export class VueloModel {
 
   static async consultarPorId({ id }) {
     const [vuelos] = await db.query(
-      `SELECT * FROM Vuelo WHERE vuelo_id = ?;`,
-      [id]
+      `SELECT * FROM Vuelo WHERE vuelo_id = ?;`, [id]
     )
     if (vuelos.length === 0) return null
     return vuelos[0]
