@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="iniciarSesion.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="form-container"> 
+            <h1>Iniciar Sesión</h1>
+
+            <p>Ingresar datos para realizar su reserva de vuelo</p>
+
+            <form id="formulario-login">
+
+                <label class="sr-only" for="usuario">Usuario</label>
+                <input type="text" name="usuario" id="usuario" placeholder="E-mail">
+
+                <label class="sr-only" for="contrasenia">Contraseña</label>
+                <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña">
+
+                <button type="submit">Iniciar Sesión</button>
+
+                <p class="error escondido">Error al iniciar Sesión</p>
+
+            </form>
+            <a href="registrarse.html">Registrarse</a>
+            
+        </div>
+    </main>
+    
+</body>
+</html>

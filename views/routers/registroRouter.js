@@ -6,6 +6,7 @@ export const crearClienteRouter = ({ registroModel }) => {
   const registroController = new RegistroController({ registroModel })
 
   registroRouter.post("/", registroController.crearCliente)
+  registroRouter.post("/iniciar-sesion", registroController.iniciarSesion)
   registroRouter.get("/", registroController.consultarTodos)
   registroRouter.route("/:id")
     .get(registroController.consultarPorId)

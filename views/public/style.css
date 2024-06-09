@@ -1,0 +1,58 @@
+body {
+    background-image: url("/imagenes/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+}
+
+.form-container {
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form + p, form p {
+    text-align: center;
+}
+
+input, button {
+    border-radius: 4px;
+    border: solid 1px ;
+    padding: 15px 30px;
+}
+
+button {
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.error {
+    color: darkred;
+}
+
+.escondido {
+    display: none;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

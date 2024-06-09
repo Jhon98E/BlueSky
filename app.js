@@ -1,5 +1,7 @@
 import express, { json } from "express"
 import cors from "cors"
+import path from "path"
+import { fileURLToPath } from "url"
 
 import { crearClienteRouter } from "./views/routers/registroRouter.js"
 import { crearVueloRouter } from "./views/routers/vueloRouter.js"
@@ -15,12 +17,16 @@ import { PagoModel } from "./models/pagoModel.js"
 
 export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel, pagoModel }) => {
   const app = express()
+  const __dirname = path.dirname(fileURLToPath(import.meta.url))
   app.disable("x-powered-by")
   app.use(cors())
-  app.use(json())
+  app.use(express.json())
+
+  app.use(express.static(path.join(__dirname, "views", "public")))
+  app.use(express.static(path.join(__dirname, 'views', 'paginas')))
 
   app.get("/", (req, res) => {
-    res.send("Hello World!")
+    res.sendFile(path.join(__dirname, "views", "paginas", "usuarios", "inicioSesion.html"))
   })
 
   app.use("/registro", crearClienteRouter({ registroModel }))

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <h1>Registrarse</h1>
+
+            <p>Ingresar datos para registrarse</p>
+
+            <form id="formulario-registro">
+
+                <label class="sr-only" for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+
+                <label class="sr-only" for="apellido">Apellido</label>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+
+                <label class="sr-only" for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="E-mail">
+
+                <label class="sr-only" for="contrasenia">Contraseña</label>
+                <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña">
+
+                <button type="submit">Registrarse</button>
+
+                <p class="error escondido">Error al Registrarse</p>
+                
+            </form>
+            <a href="inicioSesion.html">Iniciar Sesión</a>
+            
+        </div>
+    </main>
+    <script src="registrarse.js" defer></script>
+</body>
+</html>

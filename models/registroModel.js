@@ -10,6 +10,15 @@ export class RegistroModel {
     return result.insertId
   }
 
+  static async consultarPorEmail({ email }) {
+    const [clientes] = await db.query(
+      `SELECT * FROM Cliente WHERE email =?;`,
+      [email]
+    )
+    if (clientes.length === 0) return null
+    return clientes[0,1]
+  }
+
   static async consultarTodos() {
     const [clientes] = await db.query(
       `SELECT * FROM Cliente;`
