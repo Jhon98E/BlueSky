@@ -24,9 +24,10 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
 
   app.use(express.static(path.join(__dirname, "views", "public")))
   app.use(express.static(path.join(__dirname, 'views', 'paginas')))
+  app.use(express.static(path.join(__dirname, 'views', 'paginas', 'usuarios')))
 
   app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "paginas", "usuarios", "inicioSesion.html"))
+    res.sendFile(path.join(__dirname, "views", "paginas", "inicioSesion.html"))
   })
 
   app.use("/registro", crearClienteRouter({ registroModel }))

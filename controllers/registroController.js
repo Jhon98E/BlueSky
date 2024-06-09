@@ -4,31 +4,33 @@ export class RegistroController {
   }
 
   crearCliente = async (req, res) => {
-    const { nombre, apellido, email, contrasenia } = req.body;
+    const { nombre, apellido, email, contrasenia } = req.body
     if (!nombre || !apellido || !email || !contrasenia) {
-      return res.status(400).send({ message: "Todos los campos son obligatorios" });
+      return res.status(400).send({ message: "Todos los campos son obligatorios" })
     }
     try {
-      const nuevoClienteId = await this.registroModel.crear({ nombre, apellido, email, contrasenia });
-      res.status(201).send({ message: "Cliente Registrado", id: nuevoClienteId, nombre, apellido });
+      const nuevoClienteId = await this.registroModel.crear({ nombre, apellido, email, contrasenia })
+      res.status(201).send({ message: "Cliente Registrado", id: nuevoClienteId, nombre, apellido })
     } catch (error) {
-      res.status(500).send({ message: "Error al crear el cliente" });
+      res.status(500).send({ message: "Error al crear el cliente" })
     }
   }
 
   iniciarSesion = async (req, res) => {
-    const { email, contrasenia } = req.body;
+    const { email, contrasenia } = req.body
+
     if (!email || !contrasenia) {
-      return res.status(400).send({ message: "Todos los campos son obligatorios" });
+      return res.status(400).send({ message: "Todos los campos son obligatorios" })
     }
     try {
-      const cliente = await this.registroModel.consultarPorEmail(email);
+      const cliente = await this.registroModel.consultarPorEmail(email)
+
       if (!cliente || cliente.contrasenia !== contrasenia) {
-        return res.status(401).send({ message: "Correo o contraseña incorrectos" });
+        return res.status(401).send({ message: "Correo o contraseña incorrectos" })
       }
-      res.status(200).send({ message: "Inicio de sesión exitoso" });
+      res.status(200).send({ message: "Inicio de sesión exitoso" })
     } catch (error) {
-      res.status(500).send({ message: "Error al iniciar sesión" });
+      res.status(500).send({ message: "Error al iniciar sesión" })
     }
   }
 
