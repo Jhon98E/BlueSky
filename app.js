@@ -20,14 +20,18 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
   app.disable("x-powered-by")
   app.use(cors())
-  app.use(express.json())
+  app.use(json())
 
   app.use(express.static(path.join(__dirname, "views", "public")))
+  app.use(express.static(path.join(__dirname, 'views', 'public', 'estilos')))
+  app.use(express.static(path.join(__dirname, 'views', 'public', 'imagenes')))
   app.use(express.static(path.join(__dirname, 'views', 'paginas')))
   app.use(express.static(path.join(__dirname, 'views', 'paginas', 'usuarios')))
+  
+
 
   app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "paginas", "inicioSesion.html"))
+    res.sendFile(path.join(__dirname, "views", "paginas", "paginaInicio.html"))
   })
 
   app.use("/registro", crearClienteRouter({ registroModel }))
@@ -36,7 +40,6 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
   app.use("/metodo-de-pago", crearMetodoRouter({ metodoModel }))
   app.use("/pagos", crearPagoRouter({ pagoModel }))
 
-  // Correr Servidor
   const PORT = process.env.PORT ?? 3000
   app.listen(PORT, () => {
     console.log(`Servidor activo en el puerto: http://127.0.0.1:${PORT}`)
