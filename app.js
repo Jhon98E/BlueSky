@@ -29,11 +29,15 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
   app.use(express.static(path.join(__dirname, 'views', 'paginas', 'usuarios')))
   
 
-
   app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "paginas", "paginaInicio.html"))
   })
 
+  app.post("/logout", (req, res) => {
+    res.status(200).send({ message: "Sesión cerrada correctamente" })
+  })
+
+  
   app.use("/registro", crearClienteRouter({ registroModel }))
   app.use("/vuelos", crearVueloRouter({ vueloModel }))
   app.use("/reservas", crearReservaRouter({ reservaModel }))
