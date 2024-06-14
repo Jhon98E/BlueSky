@@ -25,6 +25,7 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
   app.use(express.static(path.join(__dirname, "views", "public")))
   app.use(express.static(path.join(__dirname, 'views', 'public', 'estilos')))
   app.use(express.static(path.join(__dirname, 'views', 'public', 'imagenes')))
+  app.use(express.static(path.join(__dirname, 'views', 'public', 'funciones')))
   app.use(express.static(path.join(__dirname, 'views', 'paginas')))
   app.use(express.static(path.join(__dirname, 'views', 'paginas', 'usuarios')))
   
