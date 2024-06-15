@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <td>${vuelo.fecha_regreso ? new Date(vuelo.fecha_regreso).toLocaleDateString() : "N/A"}</td>
                 <td>${vuelo.precio}</td>
                 <td>${vuelo.tipo_vuelo}</td>
+                <td><button class="btn btn-primary seleccionar-vuelo" data-id="${vuelo.vuelo_id}">Seleccionar</button></td>
             `;
 
             tbody.appendChild(row)
