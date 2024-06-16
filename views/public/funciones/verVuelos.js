@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const response = await fetch("http://127.0.0.1:3000/vuelos")
-        const vuelos = await response.json()
+        const res = await fetch("http://127.0.0.1:3000/vuelos")
+        const vuelos = await res.json()
         const tbody = document.querySelector("#vuelos-table tbody")
 
         vuelos.forEach(vuelo => {
@@ -16,10 +16,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <td>${vuelo.precio}</td>
                 <td>${vuelo.tipo_vuelo}</td>
                 <td><button class="btn btn-primary seleccionar-vuelo" data-id="${vuelo.vuelo_id}">Seleccionar</button></td>
-            `;
+            `
 
             tbody.appendChild(row)
         })
+
+        document.querySelectorAll(".seleccionar-vuelo").forEach(button => {
+            button.addEventListener("click", event => {
+                const vueloId = event.target.dataset.id
+                localStorage.setItem('vueloSeleccionado', vueloId)
+                window.location.href = 'metodoPago.html'
+            })
+        })
+
     } catch (error) {
         console.error("Error al obtener los datos de los vuelos:", error)
     }

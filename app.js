@@ -18,6 +18,7 @@ import { PagoModel } from "./models/pagoModel.js"
 export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel, pagoModel }) => {
   const app = express()
   const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
   app.disable("x-powered-by")
   app.use(cors())
   app.use(json())
@@ -44,6 +45,7 @@ export const crearApp = ({ registroModel, vueloModel, reservaModel, metodoModel,
   app.use("/reservas", crearReservaRouter({ reservaModel }))
   app.use("/metodo-de-pago", crearMetodoRouter({ metodoModel }))
   app.use("/pagos", crearPagoRouter({ pagoModel }))
+  
 
   const PORT = process.env.PORT ?? 3000
   app.listen(PORT, () => {
