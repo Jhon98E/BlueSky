@@ -50,10 +50,61 @@
             <option value="transferencia">Transferencia Bancaria</option>
         </select>
 
+        <div class="form-container" id="formulario-pago">
+            <!-- Formulario de Tarjeta de Crédito/Débito -->
+            <form id="formulario-tarjeta" class="formulario-datos">
+
+                <h4>Datos de Tarjeta de Crédito/Débito</h4>
+
+                <label class="sr-only" for="numero-tarjeta">Número de Tarjeta:</label>
+                <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="Número de Tarjeta">
+
+                <label class="sr-only" for="nombre-tarjeta">Nombre en la Tarjeta:</label>
+                <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Nombre en la Tarjeta">
+
+                <label class="sr-only" for="fecha-expiracion">Fecha de Expiración:</label>
+                <input type="date" id="fecha-expiracion" name="fecha-expiracion">
+
+                <label class="sr-only" for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV">
+
+            </form>
+
+            <!-- Formulario de PayPal -->
+            <form id="formulario-paypal" class="formulario-datos" style="display: none;">
+
+                <h4>Datos de PayPal</h4>
+
+                <label class="sr-only" for="email-paypal">Email de PayPal:</label>
+                <input type="email" id="email-paypal" name="email-paypal" placeholder="Email de PayPal">
+
+            </form>
+
+            <!-- Formulario de Transferencia Bancaria -->
+            <form id="formulario-transferencia" class="formulario-datos" style="display: none;">
+
+                <h4>Datos de Transferencia Bancaria</h4>
+
+                <label class="sr-only" for="nombre-banco">Nombre del Banco:</label>
+                <input type="text" id="nombre-banco" name="nombre-banco" placeholder="Nombre del Banco">
+
+                <label class="sr-only" for="numero-cuenta">Número de Cuenta:</label>
+                <input type="text" id="numero-cuenta" name="numero-cuenta" placeholder="Número de Cuenta">
+
+                <label class="sr-only" for="nombre-titular">Nombre del Titular:</label>
+                <input type="text" id="nombre-titular" name="nombre-titular" placeholder="Nombre del Titular">
+
+                <label class="sr-only" for="tipo-cuenta">Tipo de Cuenta:</label>
+                <input type="text" id="tipo-cuenta" name="tipo-cuenta" placeholder="Tipo de Cuenta">
+
+            </form>
+        </div>
+
         <button id="confirmar-pago" class="btn btn-success">Confirmar Pago</button>
     </div>
 
     <script src="metodoPago.js"></script>
+    <script src="cerrarSesion.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
