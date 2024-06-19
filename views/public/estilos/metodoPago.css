@@ -76,6 +76,7 @@ header .logo img {
 
 .container {
     padding: 30px;
+    margin: 30px;
     background-color: white;
     border-color: black;
     border: 50px;
@@ -95,12 +96,6 @@ form {
     gap: 10px;
 }
 
-input {
-    border-radius: 4px;
-    border: solid 1px ;
-    padding: 20px 30px;
-}
-
 .sr-only {
     position: absolute;
     left: -10000px;
@@ -109,3 +104,4 @@ input {
     height: 1px;
     overflow: hidden;
 }
+

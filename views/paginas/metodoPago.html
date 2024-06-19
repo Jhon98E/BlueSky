@@ -45,9 +45,9 @@
 
         <h3>Seleccione el Método de Pago</h3>
         <select class="form-select form-select-lg mb-3" aria-label="Large select example" id="metodo-pago">
-            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+            <option value="tarjeta de credito/debito">Tarjeta de Crédito/Débito</option>
             <option value="paypal">PayPal</option>
-            <option value="transferencia">Transferencia Bancaria</option>
+            <option value="transferencia bancaria">Transferencia Bancaria</option>
         </select>
 
         <div class="form-container" id="formulario-pago">
@@ -57,16 +57,16 @@
                 <h4>Datos de Tarjeta de Crédito/Débito</h4>
 
                 <label class="sr-only" for="numero-tarjeta">Número de Tarjeta:</label>
-                <input type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="Número de Tarjeta">
+                <input class="form-control" type="text" id="numero-tarjeta" name="numero-tarjeta" placeholder="Número de Tarjeta">
 
                 <label class="sr-only" for="nombre-tarjeta">Nombre en la Tarjeta:</label>
-                <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Nombre en la Tarjeta">
+                <input class="form-control" type="text" id="nombre-tarjeta" name="nombre-tarjeta" placeholder="Nombre en la Tarjeta">
 
                 <label class="sr-only" for="fecha-expiracion">Fecha de Expiración:</label>
-                <input type="date" id="fecha-expiracion" name="fecha-expiracion">
+                <input class="form-control" type="date" id="fecha-expiracion" name="fecha-expiracion">
 
                 <label class="sr-only" for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" placeholder="CVV">
+                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="CVV">
 
             </form>
 
@@ -76,7 +76,7 @@
                 <h4>Datos de PayPal</h4>
 
                 <label class="sr-only" for="email-paypal">Email de PayPal:</label>
-                <input type="email" id="email-paypal" name="email-paypal" placeholder="Email de PayPal">
+                <input class="form-control" type="email" id="email-paypal" name="email-paypal" placeholder="Email de PayPal">
 
             </form>
 
@@ -85,22 +85,60 @@
 
                 <h4>Datos de Transferencia Bancaria</h4>
 
-                <label class="sr-only" for="nombre-banco">Nombre del Banco:</label>
-                <input type="text" id="nombre-banco" name="nombre-banco" placeholder="Nombre del Banco">
+                <label class="sr-only" for="nombre-banco">Nombre de Banco:</label>
+                <select id="nombre-banco" required name="nombre-banco" class="form-select form-select-lg mb-3">
+                    <option label="Seleccione su banco" value="">Seleccione su banco</option>
+                    <option label="BANCAMIA S.A." value="bancamia">BANCAMIA S.A.</option>
+                    <option label="BANCO AGRARIO" value="agrario">BANCO AGRARIO</option>
+                    <option label="BANCO AV VILLAS" value="avvillas">BANCO AV VILLAS</option>
+                    <option label="BANCO BBVA COLOMBIA S.A." value="bbva">BANCO BBVA COLOMBIA S.A.</option>
+                    <option label="BANCO CAJA SOCIAL" value="caja-social">BANCO CAJA SOCIAL</option>
+                    <option label="BANCO COOPERATIVO COOPCENTRAL" value="coopertaivo-coopcentral">BANCO COOPERATIVO COOPCENTRAL</option>
+                    <option label="BANCO CREDIFINANCIERA" value="credifinanciera">BANCO CREDIFINANCIERA</option>
+                    <option label="BANCO DAVIVIENDA" value="davivienda">BANCO DAVIVIENDA</option>
+                    <option label="BANCO DE BOGOTA" value="bogota">BANCO DE BOGOTA</option>
+                    <option label="BANCO DE OCCIDENTE" value="occidente">BANCO DE OCCIDENTE</option>
+                    <option label="BANCO FALABELLA " value="falabella">BANCO FALABELLA </option>
+                    <option label="BANCO FINANDINA S.A. BIC" value="finandina">BANCO FINANDINA S.A. BIC</option>
+                    <option label="BANCO GNB SUDAMERIS" value="sudameris">BANCO GNB SUDAMERIS</option>
+                    <option label="BANCO ITAU" value="itau">BANCO ITAU</option>
+                    <option label="BANCO PICHINCHA S.A." value="pichincha">BANCO PICHINCHA S.A.</option>
+                    <option label="BANCO POPULAR" value="popular">BANCO POPULAR</option>
+                    <option label="BANCO SANTANDER COLOMBIA" value="santander">BANCO SANTANDER COLOMBIA</option>
+                    <option label="BANCO SERFINANZA" value="serfinanza">BANCO SERFINANZA</option>
+                    <option label="BANCO UNION antes GIROS" value="union">BANCO UNION antes GIROS</option>
+                    <option label="BANCOLOMBIA" value="bancolombia">BANCOLOMBIA</option>
+                    <option label="BANCOOMEVA S.A." value="bancomeva">BANCOOMEVA S.A.</option>
+                    <option label="CFA COOPERATIVA FINANCIERA" value="cfa">CFA COOPERATIVA FINANCIERA</option>
+                    <option label="CITIBANK " value="citibank">CITIBANK</option>
+                    <option label="COLTEFINANCIERA" value="coltefinanciera">COLTEFINANCIERA</option>
+                    <option label="CONFIAR COOPERATIVA FINANCIERA" value="confiar">CONFIAR COOPERATIVA FINANCIERA</option>
+                    <option label="COOFINEP COOPERATIVA FINANCIERA" value="coofinep">COOFINEP COOPERATIVA FINANCIERA</option>
+                    <option label="COTRAFA" value="cotrafa">COTRAFA</option>
+                    <option label="DALE" value="dale">DALE</option>
+                    <option label="DAVIPLATA" value="1551">DAVIPLATA</option>
+                    <option label="IRIS" value="iris">IRIS</option>
+                    <option label="LULO BANK" value="lulo">LULO BANK</option>
+                    <option label="MOVII S.A." value="movii">MOVII S.A.</option>
+                    <option label="NEQUI" value="nequi">NEQUI</option>
+                    <option label="RAPPIPAY" value="rappipay">RAPPIPAY</option>
+                    <option label="RAPPIPAY DAVIPLATA" value="rappipay">RAPPIPAY DAVIPLATA</option>
+                    <option label="SCOTIABANK COLPATRIA" value="scotiabank-colpatria">SCOTIABANK COLPATRIA</option>
+                </select>
 
                 <label class="sr-only" for="numero-cuenta">Número de Cuenta:</label>
-                <input type="text" id="numero-cuenta" name="numero-cuenta" placeholder="Número de Cuenta">
+                <input class="form-control" type="text" id="numero-cuenta" name="numero-cuenta" placeholder="Número de Cuenta">
 
                 <label class="sr-only" for="nombre-titular">Nombre del Titular:</label>
-                <input type="text" id="nombre-titular" name="nombre-titular" placeholder="Nombre del Titular">
+                <input class="form-control" type="text" id="nombre-titular" name="nombre-titular" placeholder="Nombre del Titular">
 
                 <label class="sr-only" for="tipo-cuenta">Tipo de Cuenta:</label>
-                <input type="text" id="tipo-cuenta" name="tipo-cuenta" placeholder="Tipo de Cuenta">
+                <input class="form-control" type="text" id="tipo-cuenta" name="tipo-cuenta" placeholder="Tipo de Cuenta">
 
             </form>
         </div>
 
-        <button id="confirmar-pago" class="btn btn-success">Confirmar Pago</button>
+        <button id="continuar-pago" class="btn btn-primary">Continuar al Pago</button>
     </div>
 
     <script src="metodoPago.js"></script>

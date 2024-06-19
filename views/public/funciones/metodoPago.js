@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         metodoPagoSelect.addEventListener("change", (event) => {
             const metodoSeleccionado = event.target.value;
-            formularioTarjeta.style.display = metodoSeleccionado === "tarjeta" ? "block" : "none"
+            formularioTarjeta.style.display = metodoSeleccionado === "tarjeta de credito/debito" ? "block" : "none"
             formularioPaypal.style.display = metodoSeleccionado === "paypal" ? "block" : "none"
-            formularioTransferencia.style.display = metodoSeleccionado === "transferencia" ? "block" : "none"
+            formularioTransferencia.style.display = metodoSeleccionado === "transferencia bancaria" ? "block" : "none"
         })
 
-        document.getElementById("confirmar-pago").addEventListener("click", () => {
+        document.getElementById("continuar-pago").addEventListener("click", () => {
             const metodoPago = metodoPagoSelect.value
             let datosPago = {}
 
@@ -60,9 +60,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                     tipoCuenta: document.getElementById("tipo-cuenta").value
                 }
             }
-
-            alert(`Vuelo ${vueloId} seleccionado con método de pago: ${metodoPago}\nDatos de Pago: ${JSON.stringify(datosPago)}`)
-            // Aquí puedes añadir la lógica adicional para procesar el pago
+            
+            localStorage.setItem('vueloDetalles', JSON.stringify(vuelo));
+            localStorage.setItem('metodoPago', metodoPago);  // Guardar el método de pago como string
+            localStorage.setItem('datosPago', JSON.stringify(datosPago));  // Guardar los detalles de pago como JSON
+            window.location.href = 'pagoYreserva.html';
         })
         
     } catch (error) {

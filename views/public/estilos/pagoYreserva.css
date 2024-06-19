@@ -75,14 +75,15 @@ header .logo img {
 }
 
 .container {
-    padding: 30px;
-    margin: 30px;
     background-color: white;
-    border-color: black;
-    border: 50px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-table {
+tr {
     border-radius: 20px;
 }

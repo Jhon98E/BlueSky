@@ -2,11 +2,16 @@ import db from "../controllers/database/conexion.js";
 
 export class PagoModel {
   static async crear({ reserva_id, monto, fecha_pago, metodo_pago }) {
-    const [result] = await db.query(
-      `INSERT INTO Pago (reserva_id, monto, fecha_pago, metodo_pago) VALUES (?, ?, ?, ?);`,
-      [reserva_id, monto, fecha_pago, metodo_pago]
-    );
-    return result.insertId;
+    try {
+      const [result] = await db.query(
+        `INSERT INTO Pago (reserva_id, monto, fecha_pago, metodo_pago) VALUES (?, ?, ?, ?);`,
+        [reserva_id, monto, fecha_pago, metodo_pago]
+      );
+      return result.insertId;
+    } catch (error) {
+      console.error("Error al insertar en la base de datos:", error);
+      throw error; // Esto permitirá que el error sea capturado en el controlador
+    }
   }
 
   static async consultarTodos() {

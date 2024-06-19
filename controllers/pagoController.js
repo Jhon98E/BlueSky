@@ -4,24 +4,25 @@ export class PagoController {
     }
   
     crearPago = async (req, res) => {
-      const { reserva_id, monto, fecha_pago, metodo_pago } = req.body
+      const { reserva_id, monto, fecha_pago, metodo_pago } = req.body;
       if (!reserva_id || !monto || !fecha_pago || !metodo_pago) {
-        return res.status(400).send({ message: "Todos los campos son obligatorios" })
+          return res.status(400).send({ message: "Todos los campos son obligatorios" });
       }
       try {
-        const nuevoPagoteId = await this.pagoModel.crear({ reserva_id, monto, fecha_pago, metodo_pago })
-        res.status(201).send({
-            message: "Pago Registrado",
-            id: nuevoPagoteId,
-            reserva_id:reserva_id,
-            monto:monto,
-            fecha_pago:fecha_pago,
-            metodo_pago:metodo_pago
-        })
+          const nuevoPagoId = await this.pagoModel.crear({ reserva_id, monto, fecha_pago, metodo_pago });
+          res.status(201).send({
+              message: "Pago Registrado",
+              id: nuevoPagoId,
+              reserva_id: reserva_id,
+              monto: monto,
+              fecha_pago: fecha_pago,
+              metodo_pago: metodo_pago
+          });
       } catch (error) {
-        res.status(500).send({ message: "Error al crear el cliente" })
+          console.error("Error al crear el pago:", error);
+          res.status(500).send({ message: "Error al registrar el Pago.", error: error.message });
       }
-    }
+    };
   
     consultarTodos = async (req, res) => {
       const pagos = await this.pagoModel.consultarTodos()

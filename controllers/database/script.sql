@@ -71,3 +71,8 @@ INSERT INTO Vuelo (origen, destino, fecha_salida, fecha_regreso, precio, tipo_vu
 ('Barranquilla', 'Cali', '2024-07-18', NULL, 90.00, 'Solo Ida'),
 ('Cali', 'Medellín', '2024-07-19', '2024-07-25', 140.00, 'Ida y Vuelta'),
 ('Santa Marta', 'Bogotá', '2024-07-20', NULL, 115.00, 'Solo Ida');
+
+INSERT INTO MetodoPago (nombre_metodo) VALUES
+('Tarjeta de Credito/Debito'),
+('PayPal'),
+('Transferencia Bancaria');

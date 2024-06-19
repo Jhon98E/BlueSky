@@ -28,6 +28,13 @@ export class MetodoController {
       if (metodo) return res.json(metodo)
       res.status(400).send({ message: "No se encontro el Metodo de Pago" })
     }
+
+    consultarPorNombre = async (req, res) => {
+      const { nombre } = req.query;
+      const metodoPago = await this.metodoModel.consultarPorNombre({ nombre });
+      if (metodoPago) return res.json(metodoPago);
+      res.status(400).send({ message: "Método de pago no encontrado" });
+    };
   
     actualizarMetodo = async (req, res) => {
       const { id } = req.params

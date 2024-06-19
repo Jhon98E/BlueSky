@@ -7,6 +7,7 @@ export const crearMetodoRouter = ({ metodoModel }) => {
 
   metodoRouter.post("/", metodoController.crearMetodo)
   metodoRouter.get("/", metodoController.consultarTodos)
+  metodoRouter.get("/nombre", metodoController.consultarPorNombre)
   metodoRouter.route("/:id")
     .get(metodoController.consultarPorId)
     .put(metodoController.actualizarMetodo)

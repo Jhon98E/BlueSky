@@ -12,7 +12,7 @@ export class MetodoModel {
   static async consultarTodos() {
     const [metodos] = await db.query(`SELECT * FROM MetodoPago;`);
     if (metodos.length === 0) return null;
-    return clientes;
+    return metodos;
   }
 
   static async consultarPorId({ id }) {
@@ -20,6 +20,12 @@ export class MetodoModel {
       `SELECT * FROM MetodoPago WHERE metodo_id = ?;`,
       [id]
     );
+    if (metodos.length === 0) return null;
+    return metodos[0];
+  }
+
+  static async consultarPorNombre({ nombre }) {
+    const [metodos] = await db.query(`SELECT * FROM MetodoPago WHERE nombre_metodo = ?`, [nombre]);
     if (metodos.length === 0) return null;
     return metodos[0];
   }
