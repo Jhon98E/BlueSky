@@ -30,6 +30,17 @@ export class ReservaController {
       if (reservas) return res.json(reservas)
       res.status(400).send({ message: "No se encontro ninguna Reserva" })
     }
+
+    consultarPorCliente = async (req, res) => {
+      const { cliente_id } = req.params;
+      try {
+        const reservas = await this.reservaModel.consultarPorCliente(cliente_id);
+        if (reservas) return res.json(reservas);
+        res.status(400).send({ message: "No se encontraron reservas para el cliente" });
+      } catch (error) {
+        res.status(500).send({ message: "Error al consultar las reservas" });
+      }
+    }
   
     consultarPorId = async (req, res) => {
       const { id } = req.params

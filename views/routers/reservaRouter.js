@@ -7,6 +7,7 @@ export const crearReservaRouter = ({ reservaModel }) => {
 
   reservaRouter.post("/", reservaController.crearReserva)
   reservaRouter.get("/", reservaController.consultarTodos)
+  reservaRouter.get("/cliente/:cliente_id", reservaController.consultarPorCliente)
   reservaRouter.route("/:id")
     .get(reservaController.consultarPorId)
     .put(reservaController.actualizarReserva)

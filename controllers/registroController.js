@@ -28,7 +28,7 @@ export class RegistroController {
       if (!cliente || cliente.contrasenia !== contrasenia) {
         return res.status(401).send({ message: "Correo o contraseña incorrectos" })
       }
-      res.status(200).send({ message: "Inicio de sesión exitoso" })
+      res.status(200).send({ message: "Inicio de sesión exitoso", cliente_id: cliente.cliente_id })
     } catch (error) {
       res.status(500).send({ message: "Error al iniciar sesión" })
     }

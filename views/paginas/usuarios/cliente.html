@@ -3,17 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="registro.css">
+    <title>Document</title>    
+    <link rel="stylesheet" href="cliente.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <main>
-        <div class="form-container">
-            <h1>Bienvenido Cliente: ?????????? </h1>
-            <button id="logout-button" type="button">Cerrar Sesión</button>
-            <a href="verVuelos.html">Ver Vuelos Disponibles</a>
+    <header class="header">
+
+        <div class="logo">
+            <img src="logo.png" alt="logo Empresa">
         </div>
-    </main>
+
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">Editar Perfil</a></li>
+                <li><a href="/verVuelos.html">Vuelos Disponibles</a></li>
+            </ul>
+        </nav>
+
+        <a href="#" class="btn"><button id="logout-button" type="button">Cerrar Sesión</button></a>
+
+    </header>
+
+    <div class="container container-md">
+        <div class="form-container">
+            <h1 id="welcome-message">Bienvenido Cliente: ??????????</h1>
+        </div>
+        <div class="reservas-container">
+            <h2>Mis Reservas</h2>
+            <table class="table" id="reservas-table">
+                <thead>
+                    <tr>
+                        <th>ID de Reserva</th>
+                        <th>ID de Vuelo</th>
+                        <th>Fecha de Reserva</th>
+                        <th>Fecha de Salida</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las reservas se mostrarán aquí -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script src="cerrarSesion.js"></script>
+    <script src="cliente.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

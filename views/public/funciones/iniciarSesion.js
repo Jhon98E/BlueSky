@@ -21,7 +21,10 @@ document.getElementById("formulario-login").addEventListener("submit", async (ev
   
       const data = await res.json()
   
-      if (res.ok) {
+      if (res.ok) {     
+        console.log("Cliente ID recibido:", data.cliente_id)
+        localStorage.setItem("cliente_id", data.cliente_id)
+        console.log("Cliente ID guardado en localStorage:", localStorage.getItem("cliente_id"))   
         window.location.href = "cliente.html"
       } else {
         console.error("Error al iniciar sesión:", data.message)

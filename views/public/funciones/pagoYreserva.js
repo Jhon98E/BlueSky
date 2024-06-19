@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const vueloDetalles = JSON.parse(localStorage.getItem("vueloDetalles"))
     const metodoPago = localStorage.getItem("metodoPago")
     const datosPago = JSON.parse(localStorage.getItem("datosPago"))
+    const cliente_id = localStorage.getItem("cliente_id")
 
-    if (!vueloDetalles || !metodoPago || !datosPago) {
+    if (!vueloDetalles || !metodoPago || !datosPago || !cliente_id) {
         alert("No se encontraron los detalles de la reserva. Por favor, vuelve a seleccionar el vuelo y el método de pago.")
         window.location.href = "verVuelos.html"
         return
@@ -31,7 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     confirmarReservaBtn.addEventListener("click", async () => {
         try {
-            const cliente_id = 1; // Asegúrate de obtener el cliente_id del usuario actual
+            
+            if (!cliente_id) {
+                throw new Error("Cliente no autenticado")
+            }
 
             const reservaResponse = await fetch("http://127.0.0.1:3000/reservas", {
                 method: "POST",
@@ -57,9 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error("Error al obtener el método de pago")
             }
 
-            const metodosPago = await metodoPagoResponse.json()
+            const metodosPago = await metodoPagoResponse.json()            
 
             const metodoPagoData = metodosPago.find(metodo => metodo.nombre_metodo.toLowerCase() === metodoPago.toLowerCase())
+            
             if (!metodoPagoData) {
                 throw new Error("Método de pago no encontrado")
             }
@@ -89,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             alert("Reserva y pago registrados exitosamente")
-            window.location.href = "verVuelos.html"
-            
+            window.location.href = "cliente.html"
+
         } catch (error) {
             console.error("Error al registrar la reserva o el pago:", error)
             alert("Ocurrió un error al confirmar la reserva y el pago. Por favor, intenta nuevamente.")

@@ -15,6 +15,18 @@ export class ReservaModel {
     return reservas;
   }
 
+  static async consultarPorCliente(cliente_id) {
+    const [reservas] = await db.query(
+      `SELECT Reserva.*, Vuelo.fecha_salida 
+       FROM Reserva 
+       INNER JOIN Vuelo ON Reserva.vuelo_id = Vuelo.vuelo_id 
+       WHERE Reserva.cliente_id = ?;`,
+      [cliente_id]
+    );
+    if (reservas.length === 0) return null;
+    return reservas;
+  }
+
   static async consultarPorId({ id }) {
     const [reservas] = await db.query(
       `SELECT * FROM Reserva WHERE reserva_id = ?;`,
